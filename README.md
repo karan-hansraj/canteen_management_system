@@ -15,9 +15,7 @@ A comprehensive web-based platform for managing canteen operations including mea
 - [Configuration](#configuration)
 - [Usage Guide](#usage-guide)
 - [Screenshots](#screenshots)
-- [Key Features Details](#key-features-details)
 - [File Descriptions](#file-descriptions)
-- [Contributing](#contributing)
 
 ---
 
@@ -573,76 +571,9 @@ Error: Unable to connect to MySQL
 
 ---
 
-## Contributing
-
-### Development Guidelines
-
-1. Follow PHP PSR-12 coding standards
-2. Use descriptive variable and function names
-3. Add comments for complex logic
-4. Test all changes thoroughly
-5. Update documentation
-
-### Reporting Issues
-
-1. Document the issue clearly
-2. Include error messages
-3. Provide steps to reproduce
-4. Submit with version information
-
-### Pull Requests
-
-1. Create feature branch
-2. Make focused changes
-3. Test thoroughly
-4. Write clear commit messages
-5. Submit with documentation
-
----
-
 ## License
 
 This project is provided as-is for educational and commercial use.
 
 ---
 
-## Support & Contact
-
-For technical support and inquiries:
-
-- Use the Contact page in the application
-- Check the About section for more information
-- Review database schema for data structure
-
----
-
-## Version History
-
-**Version 1.0** (March 2022)
-
-- Initial release
-- Core meal ordering functionality
-- User authentication
-- Payment processing
-- Basic reporting
-
----
-
-## Future Enhancements
-
-- [ ] Mobile application
-- [ ] Email notifications
-- [ ] Real-time order tracking
-- [ ] Customer reviews and ratings
-- [ ] Loyalty program
-- [ ] Advanced analytics dashboard
-- [ ] Integration with delivery partners
-- [ ] Subscription meal plans
-- [ ] Multi-language support
-- [ ] Progressive Web App (PWA)
-
----
-
-**Last Updated:** January 2026
-
-For more information, navigate through the application or contact the support team via the Contact page.
