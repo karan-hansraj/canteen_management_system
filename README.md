@@ -12,13 +12,11 @@ A comprehensive web-based platform for managing canteen operations including mea
 - [System Architecture](#system-architecture)
 - [Database Schema](#database-schema)
 - [Project Structure](#project-structure)
-- [Installation & Setup](#installation--setup)
 - [Configuration](#configuration)
 - [Usage Guide](#usage-guide)
 - [Screenshots](#screenshots)
 - [Key Features Details](#key-features-details)
 - [File Descriptions](#file-descriptions)
-- [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 
 ---
@@ -306,105 +304,6 @@ canteen_management_system/
 
 ---
 
-## Installation & Setup
-
-### Prerequisites
-
-- PHP 5.6 or higher
-- MySQL 5.1 or MariaDB 10.1+
-- Apache Web Server with mod_rewrite
-- Composer (optional, for package management)
-
-### Step 1: Clone/Download Project
-
-```bash
-# Download the project files to your web root
-# Windows: C:\xampp\htdocs\
-# Linux: /var/www/html/
-```
-
-### Step 2: Create Database
-
-```bash
-# Open phpMyAdmin or MySQL command line
-mysql -u root -p
-
-# Create database and import schema
-CREATE DATABASE canteen_management_system;
-USE canteen_management_system;
-SOURCE /path/to/canteen_management_system.sql;
-```
-
-### Step 3: Configure Database Connection
-
-Edit `includes/db_connect.php`:
-
-```php
-<?php
-global $con;
-$con = mysqli_connect(
-    "127.0.0.1",              // Database host
-    "root",                   // Database user
-    "",                       // Database password
-    "canteen_management_system"  // Database name
-);
-```
-
-### Step 4: Update Server Path
-
-Edit `includes/functions.php`:
-
-```php
-$SERVER_PATH = "http://localhost:8080/canteen_management_system/";
-$Currency = "USD";
-```
-
-### Step 5: Set File Permissions
-
-```bash
-# Linux/Mac
-chmod 755 uploads/
-chmod 755 includes/
-```
-
-### Step 6: Access the Application
-
-```
-http://localhost:8080/canteen_management_system/
-```
-
----
-
-## Configuration
-
-### Database Configuration
-
-**File:** `includes/db_connect.php`
-
-```php
-$con = mysqli_connect(
-    "HOST",           // 127.0.0.1 for local
-    "USER",           // root or your username
-    "PASSWORD",       // leave blank for root
-    "DATABASE_NAME"   // canteen_management_system
-);
-```
-
-### Application Configuration
-
-**File:** `includes/functions.php`
-
-```php
-$SERVER_PATH = "http://localhost:8080/canteen_management_system/";
-$Currency = "USD";
-```
-
-### Session Management
-
-- Sessions are initialized in `functions.php`
-- Default session timeout: PHP default (1440 seconds / 24 minutes)
-
----
 
 ## Usage Guide
 
@@ -490,26 +389,31 @@ $Currency = "USD";
 #### 1. Home Page
 
 ![Home Page](f1.png)
+
 _Landing page with featured meals and call-to-action_
 
 #### 2. Meal Browsing
 
 ![Meal Browse](f2.png)
+
 _Browse and filter meals by category_
 
 #### 3. Meal Details
 
 ![Meal Details](f3.png)
+
 _Detailed view of individual meal with pricing and description_
 
 #### 4. Shopping Cart
 
 ![Shopping Cart](f4.png)
+
 _Cart management and order review_
 
 #### 5. Payment Page
 
 ![Payment Page](f5.png)
+
 _Secure payment gateway integration_
 
 ### Backend Screenshots
@@ -517,6 +421,7 @@ _Secure payment gateway integration_
 #### 1. Admin Dashboard
 
 ![Admin Dashboard](b1.png)
+
 _Administrative dashboard with key metrics and quick actions_
 
 ---
@@ -539,16 +444,6 @@ _Administrative dashboard with key metrics and quick actions_
 - Remove items
 - Calculate totals
 - Session-based persistence
-```
-
-### 3. Payment Processing
-
-```php
-// Located in: payment.php
-- Multiple card type support
-- Payment validation
-- Order confirmation
-- Receipt generation
 ```
 
 ### 4. Reporting System
@@ -629,88 +524,6 @@ Six food categories:
 | `report-order.php`    | Order analytics               |
 | `report-category.php` | Category-wise reports         |
 | `report-cart.php`     | Cart analysis                 |
-
----
-
-## API Endpoints
-
-### User Endpoints
-
-```
-POST /lib/login.php?act=check_login
-  - user_user: username
-  - user_password: password
-
-POST /lib/user.php
-  - act: action (create, update, delete)
-  - user_*: user fields
-```
-
-### Meal Endpoints
-
-```
-GET /lib/meal.php?act=list
-GET /lib/meal.php?act=get&id=meal_id
-POST /lib/meal.php?act=save
-POST /lib/meal.php?act=delete&id=meal_id
-```
-
-### Order Endpoints
-
-```
-GET /lib/cart.php?act=view
-POST /lib/cart.php?act=add&meal_id=id&qty=quantity
-POST /lib/cart.php?act=remove&item_id=id
-POST /payment.php?act=process
-```
-
-### Category Endpoints
-
-```
-GET /lib/category.php?act=list
-GET /lib/category.php?act=get&id=category_id
-POST /lib/category.php?act=save
-```
-
----
-
-## Security Recommendations
-
-### Current Implementation
-
-- Session-based authentication
-- Server-side validation
-
-### Recommended Enhancements
-
-1. **Password Security**
-
-   - Use bcrypt or Argon2 hashing
-   - Implement password strength requirements
-   - Add account lockout after failed attempts
-
-2. **Input Validation**
-
-   - Use prepared statements for all queries
-   - Sanitize and validate all user inputs
-   - Implement CSRF protection
-
-3. **Data Protection**
-
-   - Use HTTPS for payment processing
-   - Implement SSL certificate
-   - Encrypt sensitive data in database
-
-4. **Access Control**
-
-   - Implement proper role-based access control (RBAC)
-   - Add permission checks for admin functions
-   - Log all admin activities
-
-5. **Error Handling**
-   - Hide database errors from users
-   - Implement proper error logging
-   - Create user-friendly error messages
 
 ---
 
